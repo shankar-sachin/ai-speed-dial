@@ -1,0 +1,112 @@
+:root{
+  --bg1:#0b1020;
+  --bg2:#0a1b2b;
+  --card: rgba(255,255,255,.08);
+  --cardHover: rgba(255,255,255,.15);
+  --text: rgba(255,255,255,.95);
+  --muted: rgba(255,255,255,.65);
+  --border: rgba(255,255,255,.15);
+  --shadow: 0 18px 60px rgba(0,0,0,.45);
+  --radius: 22px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 800px at 20% 10%, rgba(70,120,255,.25), transparent 60%),
+    radial-gradient(900px 700px at 80% 90%, rgba(0,220,200,.18), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+h1{
+  position:absolute;
+  top:32px;
+  font-size:2.6rem;
+  letter-spacing:.04em;
+  opacity:.95;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:36px;
+  width:min(1100px, 90vw);
+  padding:40px;
+}
+
+.card{
+  background: linear-gradient(180deg, var(--card), transparent);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:36px 20px 30px;
+  text-align:center;
+  cursor:pointer;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  position:relative;
+}
+
+.card:hover{
+  transform: translateY(-14px) scale(1.04);
+  background: linear-gradient(180deg, var(--cardHover), transparent);
+  box-shadow:0 30px 90px rgba(0,0,0,.65);
+}
+
+.card img{
+  width:96px;
+  height:96px;
+  object-fit:contain;
+  margin-bottom:18px;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.4));
+}
+
+.label{
+  font-size:1.25rem;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+
+.hint{
+  font-size:.9rem;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+/* Social bar */
+.social{
+  position:fixed;
+  bottom:24px;
+  left:24px;
+  display:flex;
+  gap:16px;
+  background:rgba(0,0,0,.35);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:14px 18px;
+  backdrop-filter: blur(10px);
+}
+
+.social a{
+  color:var(--text);
+  font-size:1.6rem;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.social a:hover{
+  transform: translateY(-4px) scale(1.15);
+  opacity:.9;
+}
+
+@media (max-width:600px){
+  h1{ font-size:2rem; }
+  .card i{ font-size:3.8rem; }
+}
